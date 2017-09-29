@@ -2,6 +2,6 @@ import multiprocessing
 
 bind = 'unix:/var/run/gunicorn-django-python-wsgi-0.sock'
 user = 'www-data'
-chdir = '/srv/django/public'
+chdir = '/srv/django_hello'
 workers = None or (multiprocessing.cpu_count() * 2 + 1)
 
