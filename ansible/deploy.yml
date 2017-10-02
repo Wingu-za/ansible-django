@@ -25,7 +25,7 @@
       django_manage: command=collectstatic app_path={{ install_root }}/{{ project_name }} pythonpath={{ install_root }}/{{ project_name }}
 
     - name: copy supervisor config
-      template: src=files/supervisor.j2 dest=/etc/supervisor/supervisord.conf
+      template: src=files/supervisord.j2 dest=/etc/supervisor/supervisord.conf
       notify:
       - restart supervisor
       
