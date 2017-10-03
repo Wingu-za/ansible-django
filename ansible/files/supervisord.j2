@@ -18,5 +18,5 @@ files=/etc/supervisor/conf.d/*.conf
 
 [program:django-python-wsgi-0]
 command=/usr/local/bin/gunicorn -c /etc/gunicorn.d/django_python_wsgi_0.py "hello.wsgi:application"
-directory=/srv/django/public
+directory=/srv/django_hello/
 environment=PATH="/srv/django/private/webenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
