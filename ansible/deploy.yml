@@ -36,6 +36,15 @@
       template: src=files/gunicorn.j2 dest=/etc/gunicorn.d/django_python_wsgi_0.py
       notify:
       - restart supervisor
+      
+    - name: fix directory permissions
+      command: find {{ install_root }}/{{ project_name }} -type d -exec chmod 0755 {} \;
+      
+    - name: fix file permissions
+      command: find {{ install_root }}/{{ project_name }} -type f -exec chmod 0644 {} \;
+      
+    - name: fix files ownership
+      command: chown -R www-data:www-data {{ install_root }}/{{ project_name }}
 
     - name: make sure nginx server is running
       service: name=nginx state=started enabled=yes
